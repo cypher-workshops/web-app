@@ -1,0 +1,80 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%; /* Ensure the body fills the screen */
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333; /* Default text color */
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the app container fills the screen */
+}
+
+/* Navbar Styling */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #f8f9fa; /* Light grey background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 0.8rem 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-link {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #333; /* Dark grey text */
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 5px; /* Subtle rounded corners */
+  transition: box-shadow 0.3s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: #000; /* Slightly darker hover text */
+}
+
+.nav-link.active {
+  color: #000; /* Darker text for active link */
+  font-weight: bold;
+  box-shadow: none;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding-top: 5rem; /* Adjust for the navbar height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 5rem); /* Full height minus navbar */
+}
+
+/* Page Content Styling */
+.home-page,
+.blog-page,
+.components-page {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}

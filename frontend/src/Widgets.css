@@ -1,0 +1,37 @@
+/* General Styling for Widget Page */
+.widget-page {
+  text-align: center;
+  padding-top: 5rem; /* Space below the navbar */
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9; /* Matches the app background */
+}
+
+/* Weather Card Styling */
+.widget-page .weather-card {
+  width: 70%; /* Make the card longer */
+  max-width: 800px; /* Constrain width for larger screens */
+  margin: 1.5rem auto; /* Center card horizontally */
+  padding: 2rem; /* Inner padding */
+  background-color: #007BFF; /* Blue background */
+  color: #ffffff; /* White text */
+  border-radius: 10px; /* Smooth rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  display: flex;
+  justify-content: space-between; /* Arrange text side by side */
+  align-items: center; /* Align text vertically */
+  text-align: center;
+}
+
+/* Weather Location Styling */
+.weather-location {
+  font-size: 2rem; /* Larger font size for location */
+  font-weight: bold;
+  margin-left: 1rem; /* Add spacing from the card edge */
+}
+
+/* Weather Temperature Styling */
+.weather-temperature {
+  font-size: 2rem; /* Match font size with location */
+  font-weight: bold;
+  margin-right: 1rem; /* Add spacing from the card edge */
+}
