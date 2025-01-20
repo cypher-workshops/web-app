@@ -1,4 +1,4 @@
-## What files can I edit?
+## What files can you edit?
 
 Here is a description of the functionality of the most important folders and files in your project, and how you can edit them to customize your application. “name/” indicates a folder, “name.xx” indicates a file.
 
