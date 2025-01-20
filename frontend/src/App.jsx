@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './App.css';
-import HomePage from './HomePage.jsx';
-import Widgets from './Widgets.jsx';
-import Components from './Components.jsx';
+import HomePage from './homepage/HomePage.jsx';
+import Widgets from './widgets/Widgets.jsx';
+import Components from './components/Components.jsx';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('Home');
