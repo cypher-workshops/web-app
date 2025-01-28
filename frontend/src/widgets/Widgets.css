@@ -1,15 +1,18 @@
 /* General Styling for Widget Page */
 .widget-page {
   text-align: center;
-  padding-top: 5rem; /* Space below the navbar */
   font-family: Arial, sans-serif;
   background-color: #f9f9f9; /* Matches the app background */
+  min-height: 100vh; /* Ensure full-page height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Weather Card Styling */
 .widget-page .weather-card {
-  width: 70%; /* Make the card longer */
-  max-width: 800px; /* Constrain width for larger screens */
+  width: 300px;
   margin: 1.5rem auto; /* Center card horizontally */
   padding: 2rem; /* Inner padding */
   background-color: #007BFF; /* Blue background */
@@ -24,14 +27,62 @@
 
 /* Weather Location Styling */
 .weather-location {
-  font-size: 2rem; /* Larger font size for location */
+  font-size: 1.6rem;
+  text-align: left;
   font-weight: bold;
-  margin-left: 1rem; /* Add spacing from the card edge */
 }
 
 /* Weather Temperature Styling */
 .weather-temperature {
-  font-size: 2rem; /* Match font size with location */
+  font-size: 2rem;
   font-weight: bold;
-  margin-right: 1rem; /* Add spacing from the card edge */
+  margin-top: 5px;
+  text-align: right;
+}
+
+/* Dress Me Button */
+.dress-me-button {
+  margin-top: px;
+  color: white;
+  font-size: 1rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dress-me-button:hover {
+  background-color: #003d80;
+  transform: scale(1.05);
+}
+
+/* Outfit Card */
+.outfit-card {
+  width: 450px;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Outfit Images */
+.outfit-images {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.outfit-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.outfit-image:hover {
+  transform: scale(1.1);
 }
