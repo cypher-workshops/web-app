@@ -1,8 +1,26 @@
 import React from 'react';
-import './Components.css'; // Import CSS
+import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@mui/material'; // Import MUI components
 
-function Components() {
-  return <div className="components-page">Get creative!</div>;
+export default function MediaCard() {
+  return (
+    <Card sx={{maxWidth: 345}}>
+      <CardMedia
+        sx={{ height: 200, width: 200, justifySelf: "center" }} //styling for the image 
+        image="/src/assets/myimage.png" /*this is the path to your image*/
+        title="cypher alien"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          Hi! I'm the Cypher Alien 👾
+        </Typography>
+        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+          I love learning about about coding!
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Share</Button> {/*implement functionality!*/}
+        <Button size="small">Learn More</Button> {/*implement functionality!*/}
+      </CardActions>
+    </Card>
+  );
 }
-
-export default Components;
