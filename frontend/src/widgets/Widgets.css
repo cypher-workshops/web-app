@@ -3,7 +3,7 @@
   text-align: center;
   padding-top: 5rem; /* Space below the navbar */
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9; /* Matches the app background */
+  background-color: #adcae6; /* Matches the app background */
 }
 
 /* Weather Card Styling */
@@ -12,7 +12,7 @@
   max-width: 800px; /* Constrain width for larger screens */
   margin: 1.5rem auto; /* Center card horizontally */
   padding: 2rem; /* Inner padding */
-  background-color: #007BFF; /* Blue background */
+  background-color: #161677; /* Blue background */
   color: #ffffff; /* White text */
   border-radius: 10px; /* Smooth rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
