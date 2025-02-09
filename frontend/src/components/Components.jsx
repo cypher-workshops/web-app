@@ -37,7 +37,7 @@ export default function MediaCard() {
       </CardContent>
       <CardActions>
         <Button size="small">Season 4</Button> {/*implement functionality!*/}
-        <Button size="small">Episode 21</Button> {/*implement functionality!*/}
+        <Button size="small">Episode 25</Button> {/*implement functionality!*/}
       </CardActions>
 
       <CardMedia

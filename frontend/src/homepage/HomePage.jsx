@@ -18,8 +18,8 @@ export default function MediaCard() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">This is</Button> {/*implement functionality!*/}
-        <Button size="small">Awesome</Button> {/*implement functionality!*/}
+        <Button size="small">NASA Image</Button> {/*implement functionality!*/}
+        <Button size="small">Let's Goooooo</Button> {/*implement functionality!*/}
       </CardActions>
     </Card>
   );
