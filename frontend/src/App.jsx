@@ -3,6 +3,7 @@ import './App.css';
 import HomePage from './homepage/HomePage.jsx';
 import Widgets from './widgets/Widgets.jsx';
 import Components from './components/Components.jsx';
+import Nasaapi from './nasaapi/nasaapi.jsx';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('Home');
@@ -15,6 +16,8 @@ function App() {
         return <Widgets />;
       case 'Components':
         return <Components />;
+      case 'Nasaapi':
+        return <Nasaapi />;
       default:
         return <HomePage />;
     }
@@ -22,7 +25,6 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Navigation Bar */}
       <nav className="nav-bar">
         <a
           className={`nav-link ${currentPage === 'Home' ? 'active' : ''}`}
@@ -33,6 +35,9 @@ function App() {
         <a
           className={`nav-link ${currentPage === 'Components' ? 'active' : ''}`}
           onClick={() => setCurrentPage('Components')}>Components</a>
+        <a
+          className={`nav-link ${currentPage === 'Nasaapi' ? 'active' : ''}`}
+          onClick={() => setCurrentPage('Nasaapi')}>NASA API</a> 
       </nav>
       <main className="main-content">{renderContent()}</main>
     </div>
