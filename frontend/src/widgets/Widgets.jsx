@@ -43,9 +43,9 @@ function Widgets() {
   }, []);
 
   const rows = [
-    createData('White Sugar', 25, 6.0, 24),
-    createData('Dark Brown Sugar', 20, 9.0, 37),
-    createData('Truvia Stevia Extract', 25, 16.0, 24),
+    createData('White Sugar', 29, 182, 185, 20.32),
+    createData('Dark Brown Sugar', 20.5, 175.5, 185, 20.51),
+    createData('Truvia Stevia Extract', 29, 71, 140, 35.09),
     
   ];
 
@@ -55,10 +55,12 @@ function Widgets() {
     <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
       <TableHead>
         <TableRow>
-          <TableCell>Dessert (100g serving)</TableCell>
+          <TableCell>Type of Sugar</TableCell>
           <TableCell align="right">Amount&nbsp;(g)</TableCell>
           <TableCell align="right">Melting Point&nbsp;(°C)</TableCell>
+          <TableCell align="right">Temperature at Melt&nbsp;(°C)</TableCell>
           <TableCell align="right">Time&nbsp;(min)</TableCell>
+          
         </TableRow>
       </TableHead>
       <TableBody>

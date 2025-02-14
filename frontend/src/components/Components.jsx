@@ -11,10 +11,10 @@ export default function MediaCard() {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Research Found Here! 
+          For More Information:  
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Learn about the science of chocolate!
+        On chocolate and chemistry!
         </Typography>
       </CardContent>
       <CardActions>
