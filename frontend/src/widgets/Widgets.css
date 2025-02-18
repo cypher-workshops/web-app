@@ -21,17 +21,3 @@
   align-items: center; /* Align text vertically */
   text-align: center;
 }
-
-/* Weather Location Styling */
-.weather-location {
-  font-size: 2rem; /* Larger font size for location */
-  font-weight: bold;
-  margin-left: 1rem; /* Add spacing from the card edge */
-}
-
-/* Weather Temperature Styling */
-.weather-temperature {
-  font-size: 2rem; /* Match font size with location */
-  font-weight: bold;
-  margin-right: 1rem; /* Add spacing from the card edge */
-}
