@@ -1,39 +1,122 @@
+# Import required modules
 from flask import Flask, jsonify, request
-import requests
-from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS 
 
+# Initialize Flask app
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
-# Enable Cross-Origin Resource Sharing (CORS)
-CORS(app)
+# Configure SQLite database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///TVShows.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Replace with your OpenWeatherMap API key
-OPENWEATHER_API_KEY = 'b06dbf910c042bb9bbc5e47d7afdadb4'
+# Initialize database object
+db = SQLAlchemy(app)
 
-@app.route('/api/weather', methods=['GET'])
-def get_weather():
-    # Get the city name from the query parameter, default to 'Phoenix'
-    city = request.args.get('city', 'Phoenix')
-    
-    # Construct the OpenWeatherMap API URL
-    url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=imperial&appid={OPENWEATHER_API_KEY}'
-    
-    try:
-        # Make a request to the OpenWeatherMap API
-        response = requests.get(url)
-        response.raise_for_status()  # Raise an exception for HTTP errors
+# Define the Bones model (represents a table in the database)
+class Bones(db.Model):
+    id = db.Column(db.Integer, primary_key=True)  
+    season = db.Column(db.Integer, nullable=True)  
+    episode = db.Column(db.Integer, nullable=True)  
+    rating = db.Column(db.Integer, nullable=True)  
+    genre = db.Column(db.String(50), nullable=True) 
 
-        # Parse and return the weather data
-        weather_data = response.json()
-        return jsonify({
-            "name": weather_data["name"],
-            "main": {
-                "temp": weather_data["main"]["temp"]
-            }
-        })
-    except requests.exceptions.RequestException as e:
-        print(f"Error fetching weather data: {e}")
-        return jsonify({"error": "Failed to fetch weather data"}), 500
+# Define the Greys model (represents a table in the database)
+class Greys(db.Model):
+    id = db.Column(db.Integer, primary_key=True)  
+    season = db.Column(db.Integer, nullable=True)  
+    episode = db.Column(db.Integer, nullable=True)  
+    rating = db.Column(db.Integer, nullable=True)  
+    genre = db.Column(db.String(50), nullable=True) 
 
+# Create the database and tables
+with app.app_context():
+    db.create_all()
+
+# Route to get all episodes in the bones database
+@app.route('/bones', methods=['GET'])
+def get_episodes():
+    bones_episodes = Bones.query.all()
+    return jsonify([{
+        "id": p.id,
+        "season": p.season,
+        "episode": p.episode,
+        "rating": p.rating,
+        "genre": p.genre
+    } for p in bones_episodes])
+
+# Get by genre
+@app.route('/bones/<genre>', methods=['GET'])
+def get_episode_bygenre(genre):
+    bones_episodes = Bones.query.all(genre)
+    return jsonify([{
+        "id": p.id,
+        "season": p.season,
+        "episode": p.episode,
+        "rating": p.rating,
+        "genre": p.genre
+    } for p in bones_episodes])
+
+# Get by season
+@app.route('/bones/<int:season>', methods=['GET'])
+def get_episode_byseason(season):
+    bones_episodes = Bones.query.get(season)
+    return jsonify([{
+        "id": p.id,
+        "season": p.season,
+        "episode": p.episode,
+        "rating": p.rating,
+        "genre": p.genre
+    } for p in bones_episodes])
+
+# Route to add a new bones episode
+@app.route('/bones', methods=['POST'])
+def add_person():
+    data = request.get_json()
+    if not all(key in data for key in ["season", "episode", "rating", "genre"]):
+        return jsonify({"error": "Missing required fields"}), 400
+
+    new_episode = Bones(
+        season=data["season"],
+        episode=data["episode"],
+        rating=data["rating"],
+        genre=data["genre"]
+    )
+
+    db.session.add(new_episode)
+    db.session.commit()
+    return jsonify({"message": "Bones episode added successfully", "id": new_episode.id}), 201
+
+# Route to update a bones epsiode by ID (PUT request)
+@app.route('/bones/<int:id>', methods=['PUT'])
+def update_episode(id):
+    bones_episode = Bones.query.get(id)
+    if bones_episode is None:
+        return jsonify({"error": "EBones episode not found"}), 404
+
+    data = request.get_json()
+    bones_episode.season = data.get("season", bones_episode.season)
+    bones_episode.episode = data.get("episode", bones_episode.episode)
+    bones_episode.rating = data.get("rating", bones_episode.rating)
+    bones_episode.genre = data.get("genre", bones_episode.genre)
+
+    db.session.commit()
+    return jsonify({"message": "Bones episode updated successfully"})
+
+# Route to delete a bones episode by ID
+@app.route('/bones/<int:id>', methods=['DELETE'])
+def delete_epsiode(id):
+    bones_episode = Bones.query.get(id)
+    if bones_episode is None:
+        return jsonify({"error": "Episode not found"}), 404
+
+    db.session.delete(bones_episode)
+    db.session.commit()
+    return jsonify({"message": "Bones episode deleted successfully"})
+
+# Copy and paste lines 37-92 and try updating them to create a Greys model (table)!
+
+# Run the app
 if __name__ == '__main__':
     app.run(debug=True)
