@@ -1,4 +1,4 @@
-.home-page { // These styling specifications will apply where className = home-page
+.home-page { 
     text-align: center;
     display: flex;
     flex-direction: column;

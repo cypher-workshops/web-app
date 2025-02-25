@@ -49,7 +49,7 @@ def get_episodes():
 # Get by genre
 @app.route('/bones/<genre>', methods=['GET'])
 def get_episode_bygenre(genre):
-    bones_episodes = Bones.query.all(genre)
+    bones_episodes = Bones.query.filter_by(genre=genre).all()
     return jsonify([{
         "id": p.id,
         "season": p.season,
